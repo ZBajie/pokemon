@@ -1,4 +1,13 @@
 .header-main {
-  text-align: center;
   padding: $padding-secondary;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h1 {
+    font-family: $font-cursive;
+    color: $color-secondary;
+    font-size: 5rem;
+    font-weight: $font-weight-primary;
+    text-shadow: 5px 3px rgba(202, 12, 12);
+  }
 }
