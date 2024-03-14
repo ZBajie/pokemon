@@ -3,9 +3,10 @@ import { Root } from "./pokemonInterface"
 
 type PokemonProps = {
   pokemonUrl: string
+  UpdateImageUrl: (newImageUrl: string) => void
 }
 
-const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl }) => {
+const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pokemon, setPokemon] = useState({} as Root)
   const [frontImage, setFrontImage] = useState("")
@@ -23,6 +24,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl }) => {
           setPokemon(data)
           setFrontImage(data.sprites.front_default)
           setBackImage(data.sprites.back_default)
+          UpdateImageUrl(data.sprites.front_default)
         }
       } catch (err) {
         if (isMounted) {
@@ -38,7 +40,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl }) => {
     return () => {
       isMounted = false
     }
-  }, [pokemonUrl])
+  }, [pokemonUrl, UpdateImageUrl])
 
   return (
     <div className="pokemon-card">
@@ -48,8 +50,8 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl }) => {
         <li>Weigth: {pokemon.weight}</li>
       </ul>
       <div>
-        <img src={frontImage} alt="" />
-        <img src={backImage} alt="" />
+        <img src={frontImage} alt="Pokemon" />
+        <img src={backImage} alt="Pokemon" />
       </div>
     </div>
   )

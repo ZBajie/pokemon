@@ -11,11 +11,22 @@ const App: React.FC = () => {
   const UpdateSinglePokemonUrl = (newSinglePokemonUrl: string) => {
     setSinglePokemonUrl(newSinglePokemonUrl)
   }
+
+  const [imageUrl, setImageUrl] = useState<string>(
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+  )
+
+  const UpdateImageUrl = (newImageUrl: string) => {
+    setImageUrl(newImageUrl)
+  }
   return (
     <>
-      <Header />
+      <Header imageUrl={imageUrl} />
       <div className="app-div">
-        <Pokemon pokemonUrl={singlePokemonUrl} />
+        <Pokemon
+          pokemonUrl={singlePokemonUrl}
+          UpdateImageUrl={UpdateImageUrl}
+        />
         <Pokemons UpdateSinglePokemonUrl={UpdateSinglePokemonUrl} />
       </div>
     </>
