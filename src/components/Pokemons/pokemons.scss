@@ -12,6 +12,7 @@
   }
   ul {
     li {
+      text-transform: capitalize;
       padding: calc($padding-primary / 2);
     }
   }

@@ -1,11 +1,18 @@
+import { useState } from "react"
 import Header from "./components/Header/Header"
 import Pokemons from "./components/Pokemons/Pokemons"
 
-function App() {
+const App: React.FC = () => {
+  const [singlePokemonUrl, setSinglePokemonUrl] = useState<string>("")
+
+  const UpdateSinglePokemonUrl = (newSinglePokemonUrl: string) => {
+    setSinglePokemonUrl(newSinglePokemonUrl)
+  }
+  console.log("app", singlePokemonUrl)
   return (
     <>
       <Header />
-      <Pokemons />
+      <Pokemons UpdateSinglePokemonUrl={UpdateSinglePokemonUrl} />
     </>
   )
 }

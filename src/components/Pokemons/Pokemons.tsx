@@ -12,7 +12,13 @@ export type Result = {
   url: string
 }
 
-function Pokemons() {
+type UpdateSinglePokemonUrlProps = {
+  UpdateSinglePokemonUrl: (newSinglePokemonUrl: string) => void
+}
+
+const Pokemons: React.FC<UpdateSinglePokemonUrlProps> = ({
+  UpdateSinglePokemonUrl,
+}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pokemonsUrl, setPokemonsUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon/"
@@ -54,7 +60,16 @@ function Pokemons() {
         ) : (
           pokemons.results &&
           pokemons.results.map((item, i) => {
-            return <li key={i}>{item.name}</li>
+            return (
+              <li
+                key={i}
+                onClick={() => {
+                  UpdateSinglePokemonUrl(item.url)
+                }}
+              >
+                {item.name}
+              </li>
+            )
           })
         )}
       </ul>
