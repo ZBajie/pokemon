@@ -5,11 +5,16 @@
   margin: $margin-secondary;
   padding: $padding-secondary;
   border: 10px dotted $border-color-primary;
+  box-shadow: 20px 20px 20px green;
+
   h2 {
     text-align: center;
     text-transform: capitalize;
     font-family: $font-cursive;
     font-size: 3rem;
+  }
+  ul {
+    list-style: none;
   }
   div {
     display: flex;
