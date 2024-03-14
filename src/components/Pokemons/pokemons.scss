@@ -1,0 +1,29 @@
+.pokemons {
+  background-color: darkgreen;
+  color: rgb(153, 225, 37);
+  width: fit-content;
+  margin: $margin-secondary;
+  padding: 2rem;
+  border: 10px dotted blue;
+  box-shadow: 20px 20px 20px green;
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  ul {
+    li {
+      padding: calc($padding-primary / 2);
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    margin-top: $margin-secondary;
+    padding: 0.5rem;
+    font-weight: 900;
+    background-color: rgb(153, 225, 37);
+    color: green;
+  }
+}
