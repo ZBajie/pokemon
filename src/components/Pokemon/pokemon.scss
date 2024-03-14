@@ -1,0 +1,21 @@
+.pokemon-card {
+  height: fit-content;
+  background-color: $background-color-secondary;
+  color: $color-primary;
+  margin: $margin-secondary;
+  padding: $padding-secondary;
+  border: 10px dotted $border-color-primary;
+  h2 {
+    text-align: center;
+    text-transform: capitalize;
+    font-family: $font-cursive;
+    font-size: 3rem;
+  }
+  div {
+    display: flex;
+
+    img {
+      width: 150px;
+    }
+  }
+}

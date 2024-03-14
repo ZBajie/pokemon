@@ -1,19 +1,25 @@
 .pokemons {
-  background-color: darkgreen;
-  color: rgb(153, 225, 37);
+  background-color: $background-color-secondary;
+  color: $color-primary;
   width: fit-content;
   margin: $margin-secondary;
   padding: 2rem;
-  border: 10px dotted blue;
+  border: 10px dotted $border-color-primary;
   box-shadow: 20px 20px 20px green;
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: $margin-secondary;
   }
   ul {
     li {
       text-transform: capitalize;
       padding: calc($padding-primary / 2);
+    }
+    li:hover {
+      font-size: x-large;
+      cursor: pointer;
+
+      box-shadow: 5px 5px 5px yellow;
     }
   }
   .buttons {
