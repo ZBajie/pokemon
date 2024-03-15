@@ -28,7 +28,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
         }
       } catch (err) {
         if (isMounted) {
-          console.log(err)
+          console.log("cant find search ", err)
         }
       } finally {
         if (isMounted) {
@@ -44,15 +44,21 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
 
   return (
     <div className="pokemon-card">
-      <h2>{pokemon.name}</h2>
-      <ul>
-        <li>Heigth: {pokemon.height}</li>
-        <li>Weigth: {pokemon.weight}</li>
-      </ul>
-      <div>
-        <img src={frontImage} alt="Pokemon" />
-        <img src={backImage} alt="Pokemon" />
-      </div>
+      {isLoading ? (
+        <p>Loading....</p>
+      ) : (
+        <>
+          <h2>{pokemon.name}</h2>
+          <ul>
+            <li>Heigth: {pokemon.height}</li>
+            <li>Weigth: {pokemon.weight}</li>
+          </ul>
+          <div>
+            <img src={frontImage} alt="Pokemon" />
+            <img src={backImage} alt="Pokemon" />
+          </div>
+        </>
+      )}
     </div>
   )
 }

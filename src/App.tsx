@@ -2,6 +2,7 @@ import { useState } from "react"
 import Header from "./components/Header/Header"
 import Pokemons from "./components/Pokemons/Pokemons"
 import Pokemon from "./components/Pokemon/Pokemon"
+import PokemonSearch from "./components/PokemonSearch/PokemonSearch"
 
 const App: React.FC = () => {
   const [singlePokemonUrl, setSinglePokemonUrl] = useState<string>(
@@ -23,10 +24,13 @@ const App: React.FC = () => {
     <>
       <Header imageUrl={imageUrl} />
       <div className="app-div">
-        <Pokemon
-          pokemonUrl={singlePokemonUrl}
-          UpdateImageUrl={UpdateImageUrl}
-        />
+        <div>
+          <Pokemon
+            pokemonUrl={singlePokemonUrl}
+            UpdateImageUrl={UpdateImageUrl}
+          />
+          <PokemonSearch UpdateSinglePokemonUrl={UpdateSinglePokemonUrl} />
+        </div>
         <Pokemons UpdateSinglePokemonUrl={UpdateSinglePokemonUrl} />
       </div>
     </>

@@ -51,6 +51,7 @@ const Pokemons: React.FC<UpdateSinglePokemonUrlProps> = ({
       isMounted = false
     }
   }, [pokemonsUrl])
+
   return (
     <section className="pokemons">
       <h2>Pokemons</h2>

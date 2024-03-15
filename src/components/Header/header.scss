@@ -1,8 +1,11 @@
 .header-main {
+  margin: $margin-secondary;
   padding: $padding-secondary;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
+  box-shadow: 5px 5px 5px $background-color-secondary;
   h1 {
     font-family: $font-cursive;
     color: $color-secondary;

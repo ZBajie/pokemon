@@ -1,4 +1,6 @@
 .pokemon-card {
+  min-width: 348px;
+  min-height: 250px;
   height: fit-content;
   background-color: $background-color-secondary;
   color: $color-primary;
