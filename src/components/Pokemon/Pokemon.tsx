@@ -8,6 +8,7 @@ type PokemonProps = {
 
 const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
   const [isLoading, setIsLoading] = useState(false)
+  const [errorBox, setErrorBox] = useState(false)
   const [pokemon, setPokemon] = useState({} as Root)
   const [frontImage, setFrontImage] = useState("")
   const [backImage, setBackImage] = useState("")
@@ -20,7 +21,6 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
         const result = await fetch(pokemonUrl)
         const data = await result.json()
         if (isMounted) {
-          console.log(data)
           setPokemon(data)
           setFrontImage(data.sprites.front_default)
           setBackImage(data.sprites.back_default)
@@ -28,7 +28,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
         }
       } catch (err) {
         if (isMounted) {
-          console.log("cant find search ", err)
+          setErrorBox(true)
         }
       } finally {
         if (isMounted) {
@@ -56,6 +56,21 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonUrl, UpdateImageUrl }) => {
           <div>
             <img src={frontImage} alt="Pokemon" />
             <img src={backImage} alt="Pokemon" />
+          </div>
+        </>
+      )}
+      {errorBox && (
+        <>
+          <div className="error-box-background"></div>
+          <div className="error-box">
+            <button
+              onClick={() => {
+                setErrorBox(false)
+              }}
+            >
+              Close
+            </button>
+            <p>Search failed</p>
           </div>
         </>
       )}

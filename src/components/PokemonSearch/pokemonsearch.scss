@@ -15,11 +15,23 @@
     font-family: $font-cursive;
     font-size: 3rem;
   }
-  button {
+  div {
     margin-top: $margin-secondary;
-    padding: 0.5rem;
-    font-weight: 900;
-    background-color: rgb(153, 225, 37);
-    color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      margin-top: $margin-secondary;
+      padding: 0.5rem;
+      font-weight: 900;
+      background-color: $background-color-tertiary;
+      color: $color-tertiary;
+    }
+    input {
+      background-color: $background-color-tertiary;
+      padding: $padding-primary;
+      font-size: $font-size-secondary;
+      font-weight: $font-weight-primary;
+    }
   }
 }
